@@ -27,7 +27,7 @@ const hours = today_date.getUTCHours().toString().padStart(2, '0');
 const minutes = today_date.getUTCMinutes().toString().padStart(2, '0');
 const seconds = today_date.getUTCSeconds().toString().padStart(2, '0');
 
-app.get('/api_slack', (req, res) => {
+app.get('/api', (req, res) => {
     try {
         console.log(req.body);
         const { slack_name, track } = req.query;
