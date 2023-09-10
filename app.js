@@ -26,9 +26,9 @@ const currentDate = new Date();
       const day = currentDate.getUTCDate().toString().padStart(2, '0');
       const hours = currentDate.getUTCHours().toString().padStart(2, '0');
       const minutes = currentDate.getUTCMinutes().toString().padStart(2, '0');
-      const seconds = currentDate.getUTCSeconds().toString().padStart(2, '0');
+      // const seconds = currentDate.getUTCSeconds().toString().padStart(2, '0');
       // Create the formatted UTC time string
-      const currentUTC = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`
+      const currentUTC = `${year}-${month}-${day}T${hours}:${minutes}Z`
 
 app.get('/api', (req, res) => {
     try {
