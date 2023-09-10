@@ -9,16 +9,15 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
     try {
-        return res.json({
+        const response = {
             message: "Welcome to Home Page"
-        })
-    }
-    catch (error) {
+        };
+        res.json(response);
+    } catch (error) {
         console.error('An error occurred:', error || error.message);
         res.status(500).json({ error: 'Internal Server Error' || error.message });
     }
 });
-
 
 const currentDate = new Date();
       const year = currentDate.getUTCFullYear();
@@ -35,7 +34,7 @@ app.get('/api', (req, res) => {
         console.log(req.body);
         const { slack_name, track } = req.query;
 
-        return res.json({
+        const response = {
             slack_name,
             track,
             current_day: currentDate.toLocaleDateString('en-US', { weekday: 'long' }),
@@ -43,8 +42,7 @@ app.get('/api', (req, res) => {
             github_file_url: 'https://github.com/clintonic19/HNGX_task1/blob/master/app.js',
             github_repo_url: "https://github.com/clintonic19/HNGX_task1",
             status_code: 200,
-            message: "Successful",
-        })
+        };
         res.json(response);
     }
     catch (error) {
