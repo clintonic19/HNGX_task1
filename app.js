@@ -20,18 +20,15 @@ app.get('/', (req, res) => {
 });
 
 
-// Get the current timestamp (replace this with your desired timestamp)
-const timestamp = new Date();
-
-// Convert the timestamp to the UTC time format
-const utcTime = timestamp.toISOString();
-
-const year = timestamp.getUTCFullYear();
-const month = (timestamp.getUTCMonth() + 1).toString().padStart(2, '0');
-const day = timestamp.getUTCDate().toString().padStart(2, '0');
-const hours = timestamp.getUTCHours().toString().padStart(2, '0');
-const minutes = timestamp.getUTCMinutes().toString().padStart(2, '0');
-const seconds = timestamp.getUTCSeconds().toString().padStart(2, '0');
+const currentDate = new Date();
+      const year = currentDate.getUTCFullYear();
+      const month = (currentDate.getUTCMonth() + 1).toString().padStart(2, '0');
+      const day = currentDate.getUTCDate().toString().padStart(2, '0');
+      const hours = currentDate.getUTCHours().toString().padStart(2, '0');
+      const minutes = currentDate.getUTCMinutes().toString().padStart(2, '0');
+      const seconds = currentDate.getUTCSeconds().toString().padStart(2, '0');
+      // Create the formatted UTC time string
+      const currentUTC = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`
 
 app.get('/api', (req, res) => {
     try {
@@ -41,8 +38,8 @@ app.get('/api', (req, res) => {
         return res.json({
             slack_name,
             track,
-            current_day: timestamp.toLocaleDateString('en-US', { weekday: 'long' }),
-            utc_time: utcTime,
+            current_day: currentDate.toLocaleDateString('en-US', { weekday: 'long' }),
+            utc_time: currentUTC,
             github_file_url: 'https://github.com/clintonic19/HNGX_task1/blob/master/app.js',
             github_repo_url: "https://github.com/clintonic19/HNGX_task1",
             status_code: 200,
