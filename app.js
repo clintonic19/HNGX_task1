@@ -71,7 +71,7 @@ app.post('/api', async (req, res) => {
 
     }
 
-})
+});
 
 //GET ALL USERS FROM DB
 app.get('/api/user_id', async (req, res) => {
@@ -82,9 +82,8 @@ app.get('/api/user_id', async (req, res) => {
     } catch (error) {
         console.log(error.message);
         res.status(500).json({ message: error.message })
-
     }
-})
+});
 
 //GET USER BY ID FROM DB
 app.get('/api/user_id/:id', async (req, res) => {
@@ -97,7 +96,7 @@ app.get('/api/user_id/:id', async (req, res) => {
         console.log(error.message);
         res.status(500).json({ message: error.message })
     }
-})
+});
 
 //UPDATE A USER IN DB
 app.put('/api/user_id/:id', async (req, res) => {
@@ -116,7 +115,7 @@ app.put('/api/user_id/:id', async (req, res) => {
         console.log(error.message);
         res.status(500).json({ message: error.message })
     }
-})
+});
 
 //Delete users from DB
 app.delete('/api/user_id/:id', async (req, res) => {
@@ -134,7 +133,7 @@ app.delete('/api/user_id/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
-})
+});
 
 
 
@@ -150,4 +149,4 @@ mongoose.connect('mongodb+srv://admin:tendency19@stagetwotask.pklci9a.mongodb.ne
 
     }).catch((error) => {
         console.log(error);
-    })
+    });
