@@ -1,8 +1,7 @@
 const http = require('http');
 const express = require('express');
 const mongoose = require('mongoose');
-const Person = require('./models/users')
-
+const Person = require('./models/users');
 
 //setting up express app
 const app = express();
@@ -25,10 +24,8 @@ app.get('/', (req, res) => {
     }
 });
 
-//api to get user with slack_name in HNGx program
 app.get('/api', (req, res) => {
     try {
-
         const { slack_name, track } = req.query;
 
         // Create the formatted UTC time string
@@ -40,6 +37,7 @@ app.get('/api', (req, res) => {
         const minutes = currentDate.getUTCMinutes().toString().padStart(2, '0');
         const seconds = currentDate.getUTCSeconds().toString().padStart(2, '0');
 
+        // Create the formatted UTC time string
         const currentUTC = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`
 
         const response = {
@@ -68,9 +66,7 @@ app.post('/api', async (req, res) => {
     } catch (error) {
         console.log(error.message);
         res.status(500).json({ message: error.message })
-
     }
-
 });
 
 //GET ALL USERS FROM DB
@@ -134,8 +130,6 @@ app.delete('/api/user_id/:id', async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 });
-
-
 
 // PORT
 const port = process.env.PORT || 3000;
