@@ -11,18 +11,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //HNGx project for stage 1 
-//Landing page
-// app.get('/', (req, res) => {
-//     try {
-//         const response = {
-//             message: "Welcome to Home Page"
-//         };
-//         res.json(response);
-//     } catch (error) {
-//         console.error('An error occurred:', error || error.message);
-//         res.status(500).json({ error: 'Internal Server Error' || error.message });
-//     }
-// });
+// Landing page
+
+app.get('/', (req, res) => {
+    try {
+        const response = {
+            message: "Welcome to Home Page"
+        };
+        res.json(response);
+    } catch (error) {
+        console.error('An error occurred:', error || error.message);
+        res.status(500).json({ error: 'Internal Server Error' || error.message });
+    }
+});
 
 // app.get('/api', (req, res) => {
 //     try {
